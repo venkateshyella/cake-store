@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring Boot Static Webapp</title>
+    <title>Premium Cake Store - Luxury Cakes & Pastries</title>
     <style>
         * {
             margin: 0;
@@ -13,186 +13,733 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 600px;
-            width: 90%;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
+            position: relative;
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
+        .header-content {
+            max-width: 1200px;
+            padding: 2rem;
+            z-index: 2;
         }
 
-        .feature h3 {
-            margin-bottom: 0.5rem;
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+        }
+
+        .header h2 {
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
             padding: 1rem 2rem;
-            border-radius: 50px;
             font-size: 1.1rem;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin: 1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: white;
+            color: #333;
+            transform: translateY(-2px);
         }
 
-        .status {
-            margin-top: 2rem;
-            padding: 1rem;
-            border-radius: 10px;
-            background: #e8f5e8;
-            color: #2d5a2d;
-            display: none;
+        .cta-button.primary {
+            background: #e74c3c;
+            border-color: #e74c3c;
         }
 
-        .footer {
-            margin-top: 2rem;
-            color: #888;
+        .cta-button.primary:hover {
+            background: #c0392b;
+            border-color: #c0392b;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 1rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .category-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-content {
+            padding: 2rem;
+        }
+
+        .category-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .category-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 1.1rem;
+        }
+
+        .rating-text {
+            color: #666;
             font-size: 0.9rem;
         }
 
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+
+        .btn-secondary:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 2rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .logo {
+            .header h1 {
                 font-size: 2.5rem;
             }
+            
+            .header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e74c3c;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🚀</div>
-        <h1>Spring Boot Static Webapp</h1>
-        <p class="subtitle">A beautiful, modern web application powered by Spring Boot</p>
-        
-        <div class="features">
-            <div class="feature">
-                <h3>⚡ Fast</h3>
-                <p>Lightning-fast performance with Spring Boot</p>
-            </div>
-            <div class="feature">
-                <h3>🎨 Modern</h3>
-                <p>Beautiful UI with CSS gradients and animations</p>
-            </div>
-            <div class="feature">
-                <h3>📱 Responsive</h3>
-                <p>Works perfectly on all devices</p>
-            </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">🍰 Premium Cakes</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cakes">Cakes</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/original-index.html">Original App</a></li>
+            </ul>
         </div>
+    </nav>
 
-                       <button class="cta-button" onclick="showStatus()">Check Status</button>
-               <button class="cta-button" onclick="changeTheme()">Change Theme</button>
-               <button class="cta-button" onclick="window.location.href='/dashboard.html'">View Dashboard</button>
-               <button class="cta-button" onclick="window.location.href='/dashboard2.html'">Premium Dashboard</button>
-        
-        <div id="status" class="status">
-            ✅ Application is running successfully!
+    <!-- Header -->
+    <header class="header" id="home">
+        <div class="header-content">
+            <h1>ARTISAN CAKES</h1>
+            <h2>Handcrafted with Love & Precision</h2>
+            <p>Discover our collection of premium cakes, each crafted with the finest ingredients and artistic flair. From classic flavors to innovative designs, we create edible masterpieces for your special moments.</p>
+            <div class="cta-buttons">
+                <a href="#cakes" class="cta-button primary">Explore Cakes</a>
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
         </div>
+    </header>
 
-        <div class="footer">
-            <p>Built with ❤️ using Spring Boot</p>
-            <p>Current time: <span id="current-time"></span></p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Celebrate Life's Sweet Moments</h2>
+                <p>Every cake tells a story. Let us help you create unforgettable memories with our handcrafted, premium cakes that are as beautiful as they are delicious.</p>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section" id="categories">
+            <h2 class="section-title">Cake Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Wedding Cakes</h3>
+                        <p>Elegant and sophisticated designs for your special day</p>
+                        <div class="category-stats">
+                            <span>25+ Designs</span>
+                            <span>From $299</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Birthday Cakes</h3>
+                        <p>Colorful and fun designs for all ages</p>
+                        <div class="category-stats">
+                            <span>50+ Designs</span>
+                            <span>From $89</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1621303837174-28287aee0f5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Custom Cakes</h3>
+                        <p>Personalized designs for any occasion</p>
+                        <div class="category-stats">
+                            <span>Unlimited</span>
+                            <span>From $199</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section" id="cakes">
+            <h2 class="section-title">Featured Cakes</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading delicious cakes...</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Cake Designs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5★</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Customer Support</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <h3>Premium Cake Store</h3>
+            <p>Creating sweet memories, one cake at a time</p>
+            <p>Contact: info@premiumcakes.com | Phone: +1 (555) 123-4567</p>
         </div>
-    </div>
+    </footer>
 
     <script>
-        function showStatus() {
-            const status = document.getElementById('status');
-            status.style.display = 'block';
+        // High-resolution cake images with professional backgrounds
+        const cakeProducts = [
+            {
+                id: 1,
+                name: "Chocolate Truffle Delight",
+                price: 299,
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Rich chocolate layers with ganache and gold leaf decoration",
+                rating: 4.9,
+                reviews: 127,
+                badge: "Bestseller"
+            },
+            {
+                id: 2,
+                name: "Vanilla Dream Wedding Cake",
+                price: 599,
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Elegant white cake with fresh flowers and pearl accents",
+                rating: 5.0,
+                reviews: 89,
+                badge: "Premium"
+            },
+            {
+                id: 3,
+                name: "Red Velvet Supreme",
+                price: 199,
+                image: "https://images.unsplash.com/photo-1621303837174-28287aee0f5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Classic red velvet with cream cheese frosting",
+                rating: 4.8,
+                reviews: 156,
+                badge: "Popular"
+            },
+            {
+                id: 4,
+                name: "Lemon Blueberry Bliss",
+                price: 249,
+                image: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Fresh lemon cake with blueberry compote and buttercream",
+                rating: 4.7,
+                reviews: 93,
+                badge: "Seasonal"
+            },
+            {
+                id: 5,
+                name: "Carrot Cake Classic",
+                price: 179,
+                image: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Moist carrot cake with walnuts and cream cheese frosting",
+                rating: 4.6,
+                reviews: 112,
+                badge: "Healthy"
+            },
+            {
+                id: 6,
+                name: "Strawberry Shortcake",
+                price: 229,
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Light sponge cake with fresh strawberries and whipped cream",
+                rating: 4.9,
+                reviews: 78,
+                badge: "Fresh"
+            }
+        ];
+
+        // Load products
+        function loadProducts() {
+            const productsGrid = document.getElementById('products-grid');
+            const loading = document.getElementById('loading');
+            
+            loading.style.display = 'block';
+            
             setTimeout(() => {
-                status.style.display = 'none';
-            }, 3000);
+                loading.style.display = 'none';
+                
+                cakeProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <div class="product-image" style="background-image: url('${product.image}');">
+                            <div class="product-badge">${product.badge}</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">$${product.price}</div>
+                            <div class="product-rating">
+                                <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</div>
+                                <span class="rating-text">${product.rating} (${product.reviews} reviews)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                                <button class="btn btn-secondary" onclick="quickView(${product.id})">Quick View</button>
+                            </div>
+                        </div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+            }, 1000);
         }
 
-        function changeTheme() {
-            const body = document.body;
-            const currentGradient = body.style.background;
-            
-            const gradients = [
-                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-            ];
-            
-            const currentIndex = gradients.indexOf(currentGradient);
-            const nextIndex = (currentIndex + 1) % gradients.length;
-            body.style.background = gradients[nextIndex];
+        // Add to cart function
+        function addToCart(productId) {
+            const product = cakeProducts.find(p => p.id === productId);
+            if (product) {
+                fetch('/api/cart/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        productId: product.id,
+                        productName: product.name
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Added ${product.name} to cart!`);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert(`Added ${product.name} to cart!`);
+                });
+            }
         }
 
-        function updateTime() {
-            const timeElement = document.getElementById('current-time');
-            const now = new Date();
-            timeElement.textContent = now.toLocaleString();
+        // Quick view function
+        function quickView(productId) {
+            const product = cakeProducts.find(p => p.id === productId);
+            if (product) {
+                alert(`Quick View: ${product.name}\nPrice: $${product.price}\nRating: ${product.rating}/5\nReviews: ${product.reviews}`);
+            }
         }
 
-        // Update time every second
-        setInterval(updateTime, 1000);
-        updateTime(); // Initial call
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', loadProducts);
+
+        // Parallax effect for header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header');
+            header.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
     </script>
 </body>
 </html> 
