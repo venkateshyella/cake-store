@@ -3,9 +3,9 @@ ID,Name,Price,Category,Image,Description,Rating,Reviews,Badge,Weight,Flavor,Ingr
 2,Vanilla Dream Wedding Cake,5999,Wedding,/images/weedding.png,Elegant white cake with fresh flowers and pearl accents,5.0,89,Premium,3 kg,Vanilla,Vanilla bean butter eggs flour sugar fresh flowers,6 hours,Hyderabad
 3,Red Velvet Supreme,1999,Red Velvet,/images/red-velvet-cake.jpg,Classic red velvet with cream cheese frosting,4.8,156,Popular,1 kg,Red Velvet,Cocoa buttermilk cream cheese butter eggs,3 hours,Hyderabad
 4,Lemon Blueberry Bliss,2499,Fruit,/images/fruit-cake.jpg,Fresh lemon cake with blueberry compote and buttercream,4.7,93,Seasonal,1.2 kg,Lemon Blueberry,Lemon zest blueberries butter eggs flour,4 hours,Hyderabad
-
-6,Strawberry Shortcake,2299,Fruit,/images/fruit-cake.jpg,Light sponge cake with fresh strawberries and whipped cream,4.9,78,Fresh,1 kg,Strawberry,Fresh strawberries sponge cake whipped cream,3 hours,Hyderabad
-7,Black Forest Delight,2799,Chocolate,/images/chocolate-cake.jpg,German chocolate cake with cherries and whipped cream,4.8,134,Classic,1.5 kg,Chocolate Cherry,Dark chocolate cherries whipped cream cocoa,4 hours,Hyderabad
+5,Strawberry Shortcake,2299,Fruit,/images/fruit-cake.jpg,Light sponge cake with fresh strawberries and whipped cream,4.9,78,Fresh,1 kg,Strawberry,Fresh strawberries sponge cake whipped cream,3 hours,Hyderabad
+6,Black Forest Delight,2799,Chocolate,/images/chocolate-cake.jpg,German chocolate cake with cherries and whipped cream,4.8,134,Classic,1.5 kg,Chocolate Cherry,Dark chocolate cherries whipped cream cocoa,4 hours,Hyderabad
+7,Vanilla Bean Delight,1899,Vanilla,/images/vanilla-cake.jpg,Classic vanilla bean cake with buttercream frosting,4.6,89,Classic,1 kg,Vanilla,Vanilla bean butter eggs flour sugar,3 hours,Hyderabad
 8,Butterscotch Dream,2199,Butterscotch,/images/butterscotch-cake.jpg,Delicious butterscotch flavored cake with caramel drizzle,4.7,98,Popular,1 kg,Butterscotch,Butterscotch chips caramel butter eggs,3 hours,Hyderabad
 9,Pineapple Upside Down,1899,Fruit,/images/fruit-cake.jpg,Fresh pineapple cake with tropical flavors,4.5,87,Tropical,1 kg,Pineapple,Fresh pineapple vanilla butter eggs,3 hours,Hyderabad
 10,Tiramisu Elegance,3299,Italian,/images/italian-cake.jpg?v=2,Classic Italian tiramisu with coffee and mascarpone,4.9,156,Premium,1.2 kg,Coffee,Mascarpone coffee ladyfingers cocoa powder,5 hours,Hyderabad 
