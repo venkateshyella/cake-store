@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Cake Store - Luxury Cakes & Pastries</title>
+    <title>Cakes Mania - Premium Cakes & Pastries | Hyderabad</title>
     <style>
         * {
             margin: 0;
@@ -305,7 +305,22 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-details {
+            display: flex;
+            gap: 1rem;
             margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .weight, .delivery {
+            background: #f8f9fa;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-weight: 500;
         }
 
         .product-rating {
@@ -462,7 +477,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-content">
-            <div class="logo">🍰 Premium Cakes</div>
+            <div class="logo">🍰 Cakes Mania</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#cakes">Cakes</a></li>
@@ -477,9 +492,9 @@
     <!-- Header -->
     <header class="header" id="home">
         <div class="header-content">
-            <h1>ARTISAN CAKES</h1>
-            <h2>Handcrafted with Love & Precision</h2>
-            <p>Discover our collection of premium cakes, each crafted with the finest ingredients and artistic flair. From classic flavors to innovative designs, we create edible masterpieces for your special moments.</p>
+            <h1>CAKES MANIA</h1>
+            <h2>Hyderabad's Finest Cake Destination</h2>
+            <p>Discover our collection of premium cakes, each crafted with the finest ingredients and artistic flair. From classic flavors to innovative designs, we create edible masterpieces for your special moments in Hyderabad.</p>
             <div class="cta-buttons">
                 <a href="#cakes" class="cta-button primary">Explore Cakes</a>
                 <a href="#contact" class="cta-button">Contact Us</a>
@@ -500,42 +515,8 @@
         <!-- Categories Section -->
         <section class="categories-section" id="categories">
             <h2 class="section-title">Cake Categories</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Wedding Cakes</h3>
-                        <p>Elegant and sophisticated designs for your special day</p>
-                        <div class="category-stats">
-                            <span>25+ Designs</span>
-                            <span>From $299</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Birthday Cakes</h3>
-                        <p>Colorful and fun designs for all ages</p>
-                        <div class="category-stats">
-                            <span>50+ Designs</span>
-                            <span>From $89</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1621303837174-28287aee0f5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Custom Cakes</h3>
-                        <p>Personalized designs for any occasion</p>
-                        <div class="category-stats">
-                            <span>Unlimited</span>
-                            <span>From $199</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Categories will be loaded here -->
             </div>
         </section>
 
@@ -548,7 +529,7 @@
             <div class="loading" id="loading">
                 <div class="spinner"></div>
                 <p>Loading delicious cakes...</p>
-            </div>
+        </div>
         </section>
 
         <!-- Stats Section -->
@@ -570,94 +551,39 @@
                     <div class="stat-number">24/7</div>
                     <div class="stat-label">Customer Support</div>
                 </div>
-            </div>
+        </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="footer-content">
-            <h3>Premium Cake Store</h3>
+            <h3>Cakes Mania - Hyderabad</h3>
             <p>Creating sweet memories, one cake at a time</p>
-            <p>Contact: info@premiumcakes.com | Phone: +1 (555) 123-4567</p>
+            <p>Contact: info@cakesmania.com | Phone: +91 98765 43210</p>
+            <p>📍 Banjara Hills, Hyderabad, Telangana, India</p>
         </div>
     </footer>
 
     <script>
-        // High-resolution cake images with professional backgrounds
-        const cakeProducts = [
-            {
-                id: 1,
-                name: "Chocolate Truffle Delight",
-                price: 299,
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Rich chocolate layers with ganache and gold leaf decoration",
-                rating: 4.9,
-                reviews: 127,
-                badge: "Bestseller"
-            },
-            {
-                id: 2,
-                name: "Vanilla Dream Wedding Cake",
-                price: 599,
-                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Elegant white cake with fresh flowers and pearl accents",
-                rating: 5.0,
-                reviews: 89,
-                badge: "Premium"
-            },
-            {
-                id: 3,
-                name: "Red Velvet Supreme",
-                price: 199,
-                image: "https://images.unsplash.com/photo-1621303837174-28287aee0f5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Classic red velvet with cream cheese frosting",
-                rating: 4.8,
-                reviews: 156,
-                badge: "Popular"
-            },
-            {
-                id: 4,
-                name: "Lemon Blueberry Bliss",
-                price: 249,
-                image: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Fresh lemon cake with blueberry compote and buttercream",
-                rating: 4.7,
-                reviews: 93,
-                badge: "Seasonal"
-            },
-            {
-                id: 5,
-                name: "Carrot Cake Classic",
-                price: 179,
-                image: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Moist carrot cake with walnuts and cream cheese frosting",
-                rating: 4.6,
-                reviews: 112,
-                badge: "Healthy"
-            },
-            {
-                id: 6,
-                name: "Strawberry Shortcake",
-                price: 229,
-                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                description: "Light sponge cake with fresh strawberries and whipped cream",
-                rating: 4.9,
-                reviews: 78,
-                badge: "Fresh"
-            }
-        ];
+        // Products will be loaded from API
+        let cakeProducts = [];
 
-        // Load products
-        function loadProducts() {
+        // Load products and categories from API
+        async function loadProducts() {
             const productsGrid = document.getElementById('products-grid');
+            const categoriesGrid = document.getElementById('categories-grid');
             const loading = document.getElementById('loading');
             
             loading.style.display = 'block';
             
-            setTimeout(() => {
+            try {
+                const response = await fetch('/api/products');
+                cakeProducts = await response.json();
+                
                 loading.style.display = 'none';
                 
+                // Load products
                 cakeProducts.forEach(product => {
                     const productCard = document.createElement('div');
                     productCard.className = 'product-card';
@@ -668,7 +594,11 @@
                         <div class="product-content">
                             <h3 class="product-title">${product.name}</h3>
                             <p class="product-description">${product.description}</p>
-                            <div class="product-price">$${product.price}</div>
+                            <div class="product-price">₹${product.price}</div>
+                            <div class="product-details">
+                                <span class="weight">${product.weight}</span>
+                                <span class="delivery">${product.deliveryTime}</span>
+                            </div>
                             <div class="product-rating">
                                 <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</div>
                                 <span class="rating-text">${product.rating} (${product.reviews} reviews)</span>
@@ -681,7 +611,74 @@
                     `;
                     productsGrid.appendChild(productCard);
                 });
-            }, 1000);
+
+                // Load categories dynamically from products data
+                loadCategories();
+                
+            } catch (error) {
+                console.error('Error loading products:', error);
+                loading.style.display = 'none';
+                productsGrid.innerHTML = '<p style="text-align: center; color: #666;">Error loading products. Please try again.</p>';
+            }
+        }
+
+        // Load categories from products data
+        function loadCategories() {
+            const categoriesGrid = document.getElementById('categories-grid');
+            
+            // Group products by category and calculate min prices
+            const categoryData = {};
+            cakeProducts.forEach(product => {
+                if (!categoryData[product.category]) {
+                    categoryData[product.category] = {
+                        count: 0,
+                        minPrice: Infinity,
+                        products: []
+                    };
+                }
+                categoryData[product.category].count++;
+                categoryData[product.category].minPrice = Math.min(categoryData[product.category].minPrice, product.price);
+                categoryData[product.category].products.push(product);
+            });
+
+            // Create category cards with local images for each category
+            const categoryImages = {
+                'Wedding': '/images/weedding.png',
+                'Chocolate': '/images/chocolate-cake.jpg',
+                'Red Velvet': '/images/red-velvet-cake.jpg',
+                'Fruit': '/images/fruit-cake.jpg',
+
+                'Butterscotch': '/images/butterscotch-cake.jpg',
+                'Italian': '/images/italian-cake.jpg?v=2'
+            };
+
+            const categoryDescriptions = {
+                'Wedding': 'Elegant and sophisticated designs for your special day',
+                'Chocolate': 'Rich and indulgent chocolate creations',
+                'Red Velvet': 'Classic red velvet with cream cheese frosting',
+                'Fruit': 'Fresh and fruity cake varieties',
+
+                'Butterscotch': 'Delicious butterscotch flavored cakes',
+                'Italian': 'Authentic Italian cake specialties'
+            };
+
+            Object.keys(categoryData).forEach(category => {
+                const data = categoryData[category];
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.innerHTML = `
+                    <div class="category-image" style="background-image: url('${categoryImages[category] || categoryImages['Chocolate']}');"></div>
+                    <div class="category-content">
+                        <h3>${category} Cakes</h3>
+                        <p>${categoryDescriptions[category] || 'Delicious cakes in this category'}</p>
+                        <div class="category-stats">
+                            <span>${data.count}+ Designs</span>
+                            <span>From ₹${data.minPrice.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+                categoriesGrid.appendChild(categoryCard);
+            });
         }
 
         // Add to cart function
@@ -713,7 +710,17 @@
         function quickView(productId) {
             const product = cakeProducts.find(p => p.id === productId);
             if (product) {
-                alert(`Quick View: ${product.name}\nPrice: $${product.price}\nRating: ${product.rating}/5\nReviews: ${product.reviews}`);
+                const details = `
+Quick View: ${product.name}
+Price: ₹${product.price}
+Weight: ${product.weight}
+Flavor: ${product.flavor}
+Delivery: ${product.deliveryTime}
+Rating: ${product.rating}/5 (${product.reviews} reviews)
+Ingredients: ${product.ingredients}
+Location: ${product.location}
+                `;
+                alert(details);
             }
         }
 

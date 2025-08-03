@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.io.*;
+import java.nio.file.*;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -54,64 +58,77 @@ public class WebController {
         return health;
     }
 
-    @GetMapping("/api/products")
+        @GetMapping("/api/products")
     public List<Map<String, Object>> getProducts() {
         List<Map<String, Object>> products = new ArrayList<>();
         
-        Map<String, Object> product1 = new HashMap<>();
-        product1.put("id", 1);
-        product1.put("name", "Chocolate Truffle Cake");
-        product1.put("price", 599);
-        product1.put("category", "Chocolate");
-        product1.put("image", "🍰");
-        product1.put("description", "Rich chocolate truffle cake with chocolate ganache");
-        products.add(product1);
+        try {
+            // Read CSV file from resources
+            Resource resource = new ClassPathResource("static/products.csv");
+            List<String> lines = Files.readAllLines(resource.getFile().toPath());
+            
+            // Skip header line
+            for (int i = 1; i < lines.size(); i++) {
+                String line = lines.get(i);
+                String[] values = line.split(",");
+                
+                if (values.length >= 14) {
+                    Map<String, Object> product = new HashMap<>();
+                    product.put("id", Integer.parseInt(values[0]));
+                    product.put("name", values[1]);
+                    product.put("price", Integer.parseInt(values[2]));
+                    product.put("category", values[3]);
+                    product.put("image", values[4]);
+                    product.put("description", values[5]);
+                    product.put("rating", Double.parseDouble(values[6]));
+                    product.put("reviews", Integer.parseInt(values[7]));
+                    product.put("badge", values[8]);
+                    product.put("weight", values[9]);
+                    product.put("flavor", values[10]);
+                    product.put("ingredients", values[11]);
+                    product.put("deliveryTime", values[12]);
+                    product.put("location", values[13]);
+                    
+                    products.add(product);
+                }
+            }
+        } catch (Exception e) {
+            // Fallback to hardcoded data if CSV reading fails
+            Map<String, Object> product1 = new HashMap<>();
+            product1.put("id", 1);
+            product1.put("name", "Chocolate Truffle Delight");
+            product1.put("price", 2499);
+            product1.put("category", "Chocolate");
+            product1.put("image", "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+            product1.put("description", "Rich chocolate layers with ganache and gold leaf decoration");
+            product1.put("rating", 4.9);
+            product1.put("reviews", 127);
+            product1.put("badge", "Bestseller");
+            product1.put("weight", "1.5 kg");
+            product1.put("flavor", "Chocolate");
+            product1.put("ingredients", "Dark chocolate, cream, butter, eggs, flour, sugar");
+            product1.put("deliveryTime", "4 hours");
+            product1.put("location", "Hyderabad");
+            products.add(product1);
 
-        Map<String, Object> product2 = new HashMap<>();
-        product2.put("id", 2);
-        product2.put("name", "Red Velvet Cake");
-        product2.put("price", 799);
-        product2.put("category", "Red Velvet");
-        product2.put("image", "🎂");
-        product2.put("description", "Classic red velvet cake with cream cheese frosting");
-        products.add(product2);
-
-        Map<String, Object> product3 = new HashMap<>();
-        product3.put("id", 3);
-        product3.put("name", "Black Forest Cake");
-        product3.put("price", 699);
-        product3.put("category", "Chocolate");
-        product3.put("image", "🧁");
-        product3.put("description", "German chocolate cake with cherries and whipped cream");
-        products.add(product3);
-
-        Map<String, Object> product4 = new HashMap<>();
-        product4.put("id", 4);
-        product4.put("name", "Vanilla Cream Cake");
-        product4.put("price", 499);
-        product4.put("category", "Vanilla");
-        product4.put("image", "🍰");
-        product4.put("description", "Light vanilla sponge with vanilla cream");
-        products.add(product4);
-
-        Map<String, Object> product5 = new HashMap<>();
-        product5.put("id", 5);
-        product5.put("name", "Butterscotch Cake");
-        product5.put("price", 649);
-        product5.put("category", "Butterscotch");
-        product5.put("image", "🎂");
-        product5.put("description", "Delicious butterscotch flavored cake");
-        products.add(product5);
-
-        Map<String, Object> product6 = new HashMap<>();
-        product6.put("id", 6);
-        product6.put("name", "Pineapple Cake");
-        product6.put("price", 549);
-        product6.put("category", "Fruit");
-        product6.put("image", "🧁");
-        product6.put("description", "Fresh pineapple cake with tropical flavors");
-        products.add(product6);
-
+            Map<String, Object> product2 = new HashMap<>();
+            product2.put("id", 2);
+            product2.put("name", "Vanilla Dream Wedding Cake");
+            product2.put("price", 5999);
+            product2.put("category", "Wedding");
+            product2.put("image", "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+            product2.put("description", "Elegant white cake with fresh flowers and pearl accents");
+            product2.put("rating", 5.0);
+            product2.put("reviews", 89);
+            product2.put("badge", "Premium");
+            product2.put("weight", "3 kg");
+            product2.put("flavor", "Vanilla");
+            product2.put("ingredients", "Vanilla bean, butter, eggs, flour, sugar, fresh flowers");
+            product2.put("deliveryTime", "6 hours");
+            product2.put("location", "Hyderabad");
+            products.add(product2);
+        }
+        
         return products;
     }
 
