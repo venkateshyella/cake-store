@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #8B4513;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #dc3545;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 20px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #c82333;
+        }
+
+        .nav-link.active {
+            background-color: #c82333;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            min-width: 800px;
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 30px;
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: grid;
+        }
+
+        .dropdown-column h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 5px;
+        }
+
+        .dropdown-column ul {
+            list-style: none;
+        }
+
+        .dropdown-column li {
+            margin-bottom: 8px;
+        }
+
+        .dropdown-column a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-column a:hover {
+            color: #dc3545;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #8B4513;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .order-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .order-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Product Grid */
+        .products {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .product-button:hover {
+            background: #c82333;
+        }
+
+        /* Add rating stars */
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .rating-text {
+            margin-left: 5px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Add discount badge */
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Add quick view button */
+        .quick-view {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-image:hover .quick-view {
+            opacity: 1;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+
+            .dropdown-menu {
+                min-width: 300px;
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">🍰 CakeStore</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Cakes</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h3>Trending Cakes</h3>
+                            <ul>
+                                <li><a href="#">Gourmet Cakes</a></li>
+                                <li><a href="#">Bento Cakes</a></li>
+                                <li><a href="#">Labubu Cakes</a></li>
+                                <li><a href="#">Cricket Cakes</a></li>
+                                <li><a href="#">Pinata Cakes</a></li>
+                                <li><a href="#">Drip Cakes</a></li>
+                                <li><a href="#">Bomb Cakes</a></li>
+                                <li><a href="#">Pull Me Up Cakes</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-column">
+                            <h3>By Type</h3>
+                            <ul>
+                                <li><a href="#">Bestsellers</a></li>
+                                <li><a href="#">Eggless Cakes</a></li>
+                                <li><a href="#">Photo Cakes</a></li>
+                                <li><a href="#">Cheese Cakes</a></li>
+                                <li><a href="#">Half Cakes</a></li>
+                                <li><a href="#">Heart Shaped Cakes</a></li>
+                                <li><a href="#">Rose Cakes</a></li>
+                                <li><a href="#">All Cakes</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-column">
+                            <h3>By Flavours</h3>
+                            <ul>
+                                <li><a href="#">Chocolate Cakes</a></li>
+                                <li><a href="#">Butterscotch Cakes</a></li>
+                                <li><a href="#">Pineapple Cakes</a></li>
+                                <li><a href="#">Kit Kat Cakes</a></li>
+                                <li><a href="#">Black Forest Cakes</a></li>
+                                <li><a href="#">Red Velvet Cakes</a></li>
+                                <li><a href="#">Vanilla Cakes</a></li>
+                                <li><a href="#">Fruit Cakes</a></li>
+                                <li><a href="#">Blueberry Cakes</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-column">
+                            <h3>Delivery Cities</h3>
+                            <ul>
+                                <li><a href="#">Cakes To Bangalore</a></li>
+                                <li><a href="#">Cakes To Delhi</a></li>
+                                <li><a href="#">Cakes To Gurgaon</a></li>
+                                <li><a href="#">Cakes To Hyderabad</a></li>
+                                <li><a href="#">Cakes To Noida</a></li>
+                                <li><a href="#">Cakes To Mumbai</a></li>
+                                <li><a href="#">Cakes To Jaipur</a></li>
+                                <li><a href="#">Cakes To Pune</a></li>
+                                <li><a href="#">Cakes To Chandigarh</a></li>
+                                <li><a href="#">Cakes To Chennai</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Theme Cakes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">By Relationship</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Desserts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Birthday</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Hampers (New)</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Anniversary</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Occasions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Customized Cakes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>MAGIC IN EVERY WISH</h1>
+                <h2>BIRTHDAY CAKES</h2>
+                <button class="order-button" onclick="orderNow()">ORDER NOW</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center" 
+                     alt="Beautiful Birthday Cake" 
+                     style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2 class="section-title">Featured Cakes</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=200&h=150&fit=crop&crop=center" 
+                         alt="Chocolate Truffle Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="discount-badge">-15%</div>
+                    <button class="quick-view" onclick="quickView('Chocolate Truffle Cake')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Chocolate Truffle Cake</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">(4.8)</span>
+                    </div>
+                    <div class="product-price">₹599</div>
+                    <button class="product-button" onclick="addToCart('Chocolate Truffle Cake')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=200&h=150&fit=crop&crop=center" 
+                         alt="Red Velvet Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="discount-badge">-20%</div>
+                    <button class="quick-view" onclick="quickView('Red Velvet Cake')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Red Velvet Cake</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">(4.9)</span>
+                    </div>
+                    <div class="product-price">₹799</div>
+                    <button class="product-button" onclick="addToCart('Red Velvet Cake')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=200&h=150&fit=crop&crop=center" 
+                         alt="Black Forest Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Black Forest Cake</h3>
+                    <div class="product-price">₹699</div>
+                    <button class="product-button" onclick="addToCart('Black Forest Cake')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=200&h=150&fit=crop&crop=center" 
+                         alt="Vanilla Cream Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Vanilla Cream Cake</h3>
+                    <div class="product-price">₹499</div>
+                    <button class="product-button" onclick="addToCart('Vanilla Cream Cake')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=150&fit=crop&crop=center" 
+                         alt="Butterscotch Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Butterscotch Cake</h3>
+                    <div class="product-price">₹649</div>
+                    <button class="product-button" onclick="addToCart('Butterscotch Cake')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=200&h=150&fit=crop&crop=center" 
+                         alt="Pineapple Cake" 
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Pineapple Cake</h3>
+                    <div class="product-price">₹549</div>
+                    <button class="product-button" onclick="addToCart('Pineapple Cake')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openChat()">
+        💬 Hey, need any help?
+    </div>
+
+    <script>
+        function orderNow() {
+            alert('Order functionality coming soon! 🎂');
+        }
+
+        function addToCart(productName) {
+            alert(`${productName} added to cart! 🛒`);
+        }
+
+        function openChat() {
+            alert('Chat support coming soon! 💬');
+        }
+
+        function quickView(productName) {
+            alert(`Quick view for ${productName} - Detailed product information coming soon! 👀`);
+        }
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation items
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 

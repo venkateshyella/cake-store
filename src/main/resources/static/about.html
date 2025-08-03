@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Spring Boot Static Webapp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            text-align: left;
+            line-height: 1.6;
+            color: #444;
+            margin: 2rem 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About This Application</h1>
+        <p class="subtitle">Learn more about this Spring Boot static web application</p>
+        
+        <div class="content">
+            <h2>What is this?</h2>
+            <p>This is a Spring Boot application that serves static HTML content. It demonstrates how to create a modern, responsive web application using Spring Boot's built-in static resource serving capabilities.</p>
+            
+            <h2>Features</h2>
+            <ul>
+                <li>Static HTML file serving</li>
+                <li>Modern CSS with gradients and animations</li>
+                <li>Responsive design for all devices</li>
+                <li>Interactive JavaScript functionality</li>
+                <li>Beautiful UI with smooth transitions</li>
+            </ul>
+        </div>
+
+        <div class="tech-stack">
+            <div class="tech-item">
+                <h3>Spring Boot</h3>
+                <p>Backend Framework</p>
+            </div>
+            <div class="tech-item">
+                <h3>HTML5</h3>
+                <p>Markup Language</p>
+            </div>
+            <div class="tech-item">
+                <h3>CSS3</h3>
+                <p>Styling</p>
+            </div>
+            <div class="tech-item">
+                <h3>JavaScript</h3>
+                <p>Interactivity</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="nav-button">← Back to Home</a>
+        
+        <div class="footer">
+            <p>Built with ❤️ using Spring Boot</p>
+            <p>Version 1.0.0</p>
+        </div>
+    </div>
+</body>
+</html> 
